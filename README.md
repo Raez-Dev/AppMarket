@@ -1,2 +1,2 @@
 # AppMarket
-It's an app made in Kotlin, as a part of Mobile Development Workshop
+It is an application made in Kotlin, as part of a mobile development WorkShop

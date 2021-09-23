@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AppMarketRaez</string>
+    <string name="titulo">Sign In</string>
+    <string name="help_email">Ingrese su correo</string>
+    <string name="help_password">Password</string>
+    <string name="enter">Ingresar</string>
+    <string name="rememberAccount">Recordar mi cuenta</string>
+    <string name="create_account">Crear Cuenta</string>
+    <string name="forget_password">Olvide mi password</string>
+    <string name="terms">Terminos y condiciones</string>
+</resources>

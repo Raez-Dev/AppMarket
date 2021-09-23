@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">AppMarketRaez</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="titulo">Iniciar Sesion</string>
+    <string name="help_email">Ingrese su correo</string>
+    <string name="help_password">Password</string>
+    <string name="enter">Ingresar</string>
+    <string name="rememberAccount">Recordar mi cuenta</string>
+    <string name="create_account">Crear Cuenta</string>
+    <string name="forget_password">Olvide mi password</string>
+    <string name="terms">Nuestras politicas de privacidad,terminos y condiciones</string>
+</resources>
