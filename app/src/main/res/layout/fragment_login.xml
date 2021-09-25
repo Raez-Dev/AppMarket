@@ -47,7 +47,6 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
-
         app:counterEnabled="true"
         app:counterMaxLength="50"
         app:helperText="*Requerido"
@@ -60,6 +59,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="jledesma2509@gmail.com"
             android:hint="@string/help_email" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -81,6 +81,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="12345"
             android:hint="@string/help_password"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>

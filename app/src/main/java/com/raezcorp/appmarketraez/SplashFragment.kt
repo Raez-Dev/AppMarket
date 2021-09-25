@@ -1,6 +1,8 @@
 package com.raezcorp.appmarketraez
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -17,6 +19,8 @@ class SplashFragment : Fragment() {
 
     // Simbolo !! obtiene la variable cuando no es nulo
     private val binding get()= _binding!!
+
+    private val SPLASH_TIME_OUT :Long = 3000
 
     override fun onCreateView( inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -42,9 +46,14 @@ class SplashFragment : Fragment() {
         }*/
 
         //  View Bindind (Manera correcta)
-        binding.btnNext.setOnClickListener {
+        /*binding.btnNext.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.action_splashFragment_to_loginFragment)
-        }
+        }*/
+
+        // Splash screen waiting time
+        Handler(Looper.getMainLooper()).postDelayed({
+            Navigation.findNavController(view).navigate(R.id.action_splashFragment_to_loginFragment)
+        },SPLASH_TIME_OUT)
     }
 
     // Cuando la pantalla se destruya se deja en null el binding para que sea seguro
