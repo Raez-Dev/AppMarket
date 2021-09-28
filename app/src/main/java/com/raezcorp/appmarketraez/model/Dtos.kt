@@ -3,8 +3,8 @@ package com.raezcorp.appmarketraez.model
 import com.google.gson.annotations.SerializedName
 
 class LoginDto(
-    @SerializedName("succes")
-    val succes:Boolean,
+    @SerializedName("success")
+    val success:Boolean,
     @SerializedName("message")
     val message:String,
     @SerializedName("data")
