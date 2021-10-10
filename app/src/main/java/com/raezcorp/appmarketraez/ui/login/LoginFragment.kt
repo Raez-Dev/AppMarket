@@ -1,5 +1,6 @@
 package com.raezcorp.appmarketraez.ui.login
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,8 +9,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
+import com.raezcorp.appmarketraez.MainMenuActivity
 import com.raezcorp.appmarketraez.R
 import com.raezcorp.appmarketraez.core.SecurityPreferences.encryptedPreferences
+import com.raezcorp.appmarketraez.core.SecurityPreferences.getToken
 import com.raezcorp.appmarketraez.core.SecurityPreferences.saveToken
 import com.raezcorp.appmarketraez.data.Api
 import com.raezcorp.appmarketraez.databinding.FragmentLoginBinding
@@ -43,9 +46,18 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        /*init()*/
         events()
         setUpObservables()
     }
+
+   /* private fun init() {
+        val token = getToken(requireContext().encryptedPreferences(Constants.PREFERENCES_TOKEN))
+
+        if (!token.isEmpty()){
+            startActivity(Intent(requireContext(),MainMenuActivity::class.java))
+        }
+    }*/
 
     private fun setUpObservables() = with(binding) {
         // Observables by LiveData
@@ -70,12 +82,13 @@ class LoginFragment : Fragment() {
 
         })
 
-        viewModel.user.observe(viewLifecycleOwner, { user ->
+        viewModel.user.observe(viewLifecycleOwner, {
             // Nav to Menu
-            //println("Info - User Observe")
-            Toast.makeText(requireContext(), user.nombres, Toast.LENGTH_SHORT).show()
 
-            // TODO Nav to main view
+            Toast.makeText(requireContext(), it.nombres, Toast.LENGTH_SHORT).show()
+            it?.let {
+                    startActivity(Intent(requireContext(),MainMenuActivity::class.java))
+            }
         })
     }
 

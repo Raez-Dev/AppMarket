@@ -1,5 +1,6 @@
 package com.raezcorp.appmarketraez.ui.splash
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -8,24 +9,32 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
+import com.raezcorp.appmarketraez.MainMenuActivity
 import com.raezcorp.appmarketraez.R
+import com.raezcorp.appmarketraez.core.SecurityPreferences
+import com.raezcorp.appmarketraez.core.SecurityPreferences.encryptedPreferences
 import com.raezcorp.appmarketraez.databinding.FragmentSplashBinding
+import com.raezcorp.appmarketraez.util.Constants
 
 class SplashFragment : Fragment() {
 
     //FragmentSplashBinding
     // late init evita la regla de kotlin para inicializar todas las variables
     // Simbolo ? Safety proteje variables nulas
-    private var _binding : FragmentSplashBinding? = null;
+    private var _binding: FragmentSplashBinding? = null;
 
     // Simbolo !! obtiene la variable cuando no es nulo
-    private val binding get()= _binding!!
+    private val binding get() = _binding!!
 
-    private val SPLASH_TIME_OUT :Long = 3000
+    private val SPLASH_TIME_OUT: Long = 3000
 
-    override fun onCreateView( inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         // Inflate the layout for this fragment
-        _binding = FragmentSplashBinding.inflate(inflater,container,false)
+        _binding = FragmentSplashBinding.inflate(inflater, container, false)
         //return inflater.inflate(R.layout.fragment_splash, container, false)
         return binding?.root
     }
@@ -36,9 +45,9 @@ class SplashFragment : Fragment() {
 
         //  Opciones de mapeo de vista
         //  FindView
-       /* val btnNext:Button = view.findViewById(R.id.btnNext);
-        btnNext.setOnClickListener {
-        }*/
+        /* val btnNext:Button = view.findViewById(R.id.btnNext);
+         btnNext.setOnClickListener {
+         }*/
 
         //  Kotlin Syntethic o Extensions (Ya se encuentra deprecado)
         //  Add plugin in Gradle
@@ -53,8 +62,16 @@ class SplashFragment : Fragment() {
 
         // Splash screen waiting time
         Handler(Looper.getMainLooper()).postDelayed({
-            Navigation.findNavController(view).navigate(R.id.action_splashFragment_to_loginFragment)
-        },SPLASH_TIME_OUT)
+
+            val token =
+                SecurityPreferences.getToken(requireContext().encryptedPreferences(Constants.PREFERENCES_TOKEN))
+            if (!token.isEmpty()) {
+                startActivity(Intent(requireContext(), MainMenuActivity::class.java))
+            } else {
+                Navigation.findNavController(view)
+                    .navigate(R.id.action_splashFragment_to_loginFragment)
+            }
+        }, SPLASH_TIME_OUT)
     }
 
     // Cuando la pantalla se destruya se deja en null el binding para que sea seguro

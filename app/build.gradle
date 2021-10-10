@@ -60,4 +60,14 @@ dependencies {
     // Encrypt - Security
     implementation "androidx.security:security-crypto:1.0.0-alpha02"
 
+    //  Plugin to progress bar tipe IOS
+    implementation "com.kaopiz:kprogresshud:$kprogress"
+
+    // Interceptor
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp3"
+
+    //  Picasso
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
+
 }

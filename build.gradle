@@ -29,4 +29,6 @@ task clean(type: Delete) {
 ext{
     retrofit2 = "2.6.0"
     gsonConverter = "2.6.0"
+    kprogress = "1.2.0"
+    okhttp3='4.9.0'
 }

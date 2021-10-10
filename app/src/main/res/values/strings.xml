@@ -19,4 +19,5 @@
     <string name="register_nDocument">Numero de documento</string>
     <string name="register_password">Password</string>
     <string name="register_create_account_button">Crear cuenta</string>
+    <string name="welcome">Welcome</string>
 </resources>

@@ -12,3 +12,22 @@ class LoginDto(
     @SerializedName("token")
     val token:String
 )
+
+data class GenderDto(
+
+    @SerializedName("success")
+    val success:Boolean,
+    @SerializedName("message")
+    val message:String,
+    @SerializedName("data")
+    val data:List<Gender>,
+)
+
+data class CategoriesDto(
+    @SerializedName("success")
+    val success:Boolean,
+    @SerializedName("message")
+    val message:String,
+    @SerializedName("data")
+    val data:List<Category>,
+)
