@@ -22,8 +22,9 @@ class CategoryAdapter(var categories: List<Category> = listOf()) :
 
         private val binding: ItemCategoriesBinding = ItemCategoriesBinding.bind(itemView)
 
-        fun bind(category: Category) {
-            Picasso.get().load(category.cover).into(binding.imgCategories)
+        fun bind(category: Category) = with(binding) {
+            Picasso.get().load(category.cover).into(imgCategories)
+
         }
     }
 
@@ -34,9 +35,9 @@ class CategoryAdapter(var categories: List<Category> = listOf()) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryAdapterViewHolder {
         // Create a view
-        val view: View =
-            LayoutInflater.from(parent.context).inflate(R.layout.item_categories, parent, false)
+        val view:View = LayoutInflater.from(parent.context).inflate(R.layout.item_categories,parent,false)
         return CategoryAdapterViewHolder(view)
+
     }
 
     override fun onBindViewHolder(holder: CategoryAdapterViewHolder, position: Int) {

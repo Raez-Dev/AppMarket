@@ -45,20 +45,18 @@ class CategoriesFragment : Fragment() {
     private fun setupObservables() {
         viewModel.categories.observe(viewLifecycleOwner,{
             adapter.updateCategories(it)
-
+            adapter.notifyDataSetChanged()
         })
     }
 
     private fun loadData() {
-        val token = getToken(requireContext().encryptedPreferences(
-            Constants.PREFERENCES_TOKEN))
+        val token = getToken(requireContext().encryptedPreferences(Constants.PREFERENCES_TOKEN))
         viewModel.getCategories(token)
 
     }
 
     private fun setupAdapter() {
-        binding.rvCategories.adapter = this.adapter
-
+        binding.rvCategories.adapter = adapter
     }
 
     override fun onDestroy() {

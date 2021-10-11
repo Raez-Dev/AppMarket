@@ -8,12 +8,14 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvCategories"
+        android:contentDescription="@string/categories_list_of_categories"
         android:layout_width="0dp"
         android:layout_height="0dp"
         tools:listitem="@layout/item_categories"
         android:scrollbars="vertical"
         android:scrollbarStyle="outsideOverlay"
         android:scrollbarThumbVertical="@drawable/custom_scrollbar"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
