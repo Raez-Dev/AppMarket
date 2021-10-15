@@ -21,4 +21,6 @@
     <string name="register_create_account_button">Crear cuenta</string>
     <string name="welcome">Welcome</string>
     <string name="categories_list_of_categories">List of categories</string>
+    <string name="session_expire">Your session was expire</string>
+    <string name="unauthorize_ok">Ok</string>
 </resources>

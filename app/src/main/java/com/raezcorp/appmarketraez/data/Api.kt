@@ -8,10 +8,7 @@ import retrofit2.Call
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.POST
+import retrofit2.http.*
 
 // Change class for object
 object Api {
@@ -47,6 +44,9 @@ object Api {
 
         @GET("api/categorias")
         suspend fun getCategories(@Header("Authorization" ) authorization:String): Response<CategoriesDto>
+
+        @GET("api/categorias/{categoriaId}/productos")
+        suspend fun getProducts(@Header("Authorization" ) authorization:String,@Path("categoriaId") uuid:String): Response<ProductDto>
 
     }
 

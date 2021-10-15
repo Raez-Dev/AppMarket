@@ -31,3 +31,12 @@ data class CategoriesDto(
     @SerializedName("data")
     val data:List<Category>,
 )
+
+data class ProductDto(
+    @SerializedName("success")
+    val success:Boolean,
+    @SerializedName("message")
+    val message:String,
+    @SerializedName("data")
+    val data:List<Product>
+)

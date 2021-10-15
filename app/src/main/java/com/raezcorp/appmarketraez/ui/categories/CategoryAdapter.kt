@@ -12,9 +12,10 @@ import com.squareup.picasso.Picasso
 
 // 1.- Define data place
 // 3.- Adapter methods
-class CategoryAdapter(var categories: List<Category> = listOf()) :
-    RecyclerView.Adapter<CategoryAdapter.CategoryAdapterViewHolder>() {
+class CategoryAdapter(var categories: List<Category> = listOf(),
+                      var onClickCategory:(Category) -> Unit) :RecyclerView.Adapter<CategoryAdapter.CategoryAdapterViewHolder>() {
 
+//    lateinit var onClickCategory:(Category) -> Unit
     // 2. Define an internal viewHolder class
     // XML (item)
     // Data
@@ -25,6 +26,9 @@ class CategoryAdapter(var categories: List<Category> = listOf()) :
         fun bind(category: Category) = with(binding) {
             Picasso.get().load(category.cover).into(imgCategories)
 
+            imgCategories.setOnClickListener {
+                onClickCategory(category)
+            }
         }
     }
 

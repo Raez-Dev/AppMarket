@@ -1,6 +1,7 @@
 package com.raezcorp.appmarketraez.model
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 import java.util.*
 
 data class Usuario(
@@ -42,3 +43,25 @@ data class Category(
     val cover: String
 )
 
+data class Product(
+    @SerializedName("uuid")
+    val uuid: String,
+
+    @SerializedName("stock")
+    val stock: Int,
+
+    @SerializedName("precio")
+    val precio: Double,
+
+    @SerializedName("imagenes")
+    val imagenes: List<String>,
+
+    @SerializedName("descripcion")
+    val descripcion: String,
+
+    @SerializedName("codigo")
+    val codigo: String,
+
+    @SerializedName("caracteristicas")
+    val caracteristicas: String,
+):Serializable
