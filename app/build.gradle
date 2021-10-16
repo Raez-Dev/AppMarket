@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'androidx.navigation.safeargs.kotlin'
+    id 'kotlin-kapt'
     // id 'kotlin-android-extensions'
 }
 
@@ -70,7 +71,10 @@ dependencies {
     //  Picasso
     implementation 'com.squareup.picasso:picasso:2.71828'
 
-    //Activate save arguments
+    //  Room - to manage local db
+    implementation 'androidx.room:room-ktx:2.2.5'
+    implementation "androidx.room:room-runtime:2.2.5"
+    kapt "androidx.room:room-compiler:2.2.5"
 
 
 }

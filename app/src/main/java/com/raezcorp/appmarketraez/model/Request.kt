@@ -12,3 +12,11 @@ data class CreateAccountRequest(
         val nroDoc: String,
         val firebaseToken: String = ""
     )
+
+data class PaymentRequest(
+        val direccionEnvio: DireccionEnvio,
+        val fechaHora: String,
+        val metodoPago: MetodoPago,
+        val productos: List<ProductoEnvio>,
+        val total: Double
+)

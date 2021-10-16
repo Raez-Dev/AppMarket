@@ -48,6 +48,9 @@ object Api {
         @GET("api/categorias/{categoriaId}/productos")
         suspend fun getProducts(@Header("Authorization" ) authorization:String,@Path("categoriaId") uuid:String): Response<ProductDto>
 
+        @POST("/api/compras/nueva-compra")
+        suspend fun doPay(@Body request : PaymentRequest): Response<PaymentDto>
+
     }
 
     // 3. Return instance

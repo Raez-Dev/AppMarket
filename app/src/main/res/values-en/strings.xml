@@ -20,4 +20,5 @@
     <string name="welcome">Welcome</string>
     <string name="categories_list_of_categories">List of categories</string>
     <string name="unauthorize_ok">Ok</string>
+    <string name="product_details_add">Add</string>
 </resources>

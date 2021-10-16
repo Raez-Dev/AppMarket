@@ -65,3 +65,22 @@ data class Product(
     @SerializedName("caracteristicas")
     val caracteristicas: String,
 ):Serializable
+
+data class DireccionEnvio(
+    val direccion: String,
+    val distrito: String,
+    val referencia: String,
+    val tipo: Int
+)
+
+data class MetodoPago(
+    val monto: Double,
+    val tipo: Int
+)
+
+data class ProductoEnvio(
+    val cantidad: Int,
+    val categoriaId: String,
+    val productoId: String
+)
+

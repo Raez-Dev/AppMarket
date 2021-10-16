@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/myShoppingFragment"
-        android:name="com.raezcorp.appmarketraez.ui.cart.MyShoppingFragment"
+        android:name="com.raezcorp.appmarketraez.ui.shoppingCar.MyShoppingFragment"
         android:label="fragment_my_shopping"
         tools:layout="@layout/fragment_my_shopping" />
     <fragment
@@ -39,5 +39,11 @@
         <argument
             android:name="product"
             app:argType="com.raezcorp.appmarketraez.model.Product" />
+        <argument
+            android:name="uuidCategory"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_productDetailFragment_to_categoriesFragment"
+            app:destination="@id/categoriesFragment" />
     </fragment>
 </navigation>

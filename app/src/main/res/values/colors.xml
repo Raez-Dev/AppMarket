@@ -12,4 +12,6 @@
     <color name="subtitle">#555555</color>
     <color name="background_views">#F5F6FA</color>
     <color name="box">#C4C4C4</color>
+    <color name="text_secundary">#585B62</color>
+
 </resources>

@@ -33,6 +33,7 @@ class ProductsFragment : Fragment() {
     private val binding get() = _binding!!
     private  var progress : KProgressHUD? = null
     private val viewModel: ProductsViewModel by viewModels()
+    private var uuidCategory = ""
 
     private val adapter :BaseAdapter<Product> = object:BaseAdapter<Product>(emptyList()){
         override fun getViewHolder(parent: ViewGroup): BaseAdapterViewHolder<Product> {
@@ -56,7 +57,7 @@ class ProductsFragment : Fragment() {
     }
 
     private fun onItemSelected(entity:Product){
-        val directions = ProductsFragmentDirections.actionProductsFragmentToProductDetailFragment(entity)
+        val directions = ProductsFragmentDirections.actionProductsFragmentToProductDetailFragment(entity,uuidCategory )
         Navigation.findNavController(binding.root).navigate(directions)
     }
 
@@ -85,9 +86,9 @@ class ProductsFragment : Fragment() {
         // Use save args
         arguments?.let {
             // Get uuid
-            val uuid = ProductsFragmentArgs.fromBundle(it).uuid
+            uuidCategory = ProductsFragmentArgs.fromBundle(it).uuid
             val token = SecurityPreferences.getToken(requireContext().encryptedPreferences(Constants.PREFERENCES_TOKEN))
-            viewModel.getProducts(uuid,token)
+            viewModel.getProducts(uuidCategory,token)
 
         }
     }
