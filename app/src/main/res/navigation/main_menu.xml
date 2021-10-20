@@ -18,7 +18,11 @@
         android:id="@+id/myShoppingFragment"
         android:name="com.raezcorp.appmarketraez.ui.shoppingCar.MyShoppingFragment"
         android:label="fragment_my_shopping"
-        tools:layout="@layout/fragment_my_shopping" />
+        tools:layout="@layout/fragment_my_shopping" >
+        <action
+            android:id="@+id/action_myShoppingFragment_to_paymentFragment"
+            app:destination="@id/paymentFragment" />
+    </fragment>
     <fragment
         android:id="@+id/productsFragment"
         android:name="com.raezcorp.appmarketraez.ui.product.ProductsFragment"
@@ -46,4 +50,9 @@
             android:id="@+id/action_productDetailFragment_to_categoriesFragment"
             app:destination="@id/categoriesFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="com.raezcorp.appmarketraez.ui.payment.PaymentFragment"
+        android:label="fragment_payment"
+        tools:layout="@layout/fragment_payment" />
 </navigation>

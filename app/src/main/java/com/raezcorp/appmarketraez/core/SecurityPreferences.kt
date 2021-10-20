@@ -9,6 +9,7 @@ import com.raezcorp.appmarketraez.util.Constants
 
 object SecurityPreferences {
 
+    //  TODO CHANGE DEPRECATED
     // 1    Encrypt preferences
 
     fun Context.encryptedPreferences(name:String):SharedPreferences{

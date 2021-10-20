@@ -11,6 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import com.raezcorp.appmarketraez.MainMenuActivity
 import com.raezcorp.appmarketraez.R
+import com.raezcorp.appmarketraez.core.BaseFragment
 import com.raezcorp.appmarketraez.core.SecurityPreferences.encryptedPreferences
 import com.raezcorp.appmarketraez.core.SecurityPreferences.getToken
 import com.raezcorp.appmarketraez.core.SecurityPreferences.saveToken
@@ -25,7 +26,7 @@ import kotlinx.coroutines.withContext
 import java.lang.Exception
 
 
-class LoginFragment : Fragment() {
+class LoginFragment : BaseFragment() {
 
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
@@ -98,8 +99,8 @@ class LoginFragment : Fragment() {
         }
 
         tvCreateAccount.setOnClickListener {
-            Navigation.findNavController(binding.root)
-                .navigate(R.id.action_loginFragment_to_registerFragment)
+            //Navigation.findNavController(binding.root).navigate(R.id.action_loginFragment_to_registerFragment)
+            navigate(action= R.id.action_loginFragment_to_registerFragment)
 
         }
     }

@@ -54,11 +54,11 @@
             android:textColor="@color/white"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/textView11"
+            app:layout_constraintEnd_toStartOf="@+id/tvTotal"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView11"
+            android:id="@+id/tvTotal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
@@ -78,7 +78,7 @@
         app:layout_constraintGuide_percent="0.8" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnCheckIn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"

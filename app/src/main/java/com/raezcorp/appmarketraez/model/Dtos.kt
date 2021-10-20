@@ -11,7 +11,7 @@ class LoginDto(
     @SerializedName("message")
     val message:String,
     @SerializedName("data")
-    val data:Usuario,
+    val data:Usuario?,
     @SerializedName("token")
     val token:String
 )

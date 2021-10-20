@@ -1,5 +1,6 @@
 package com.raezcorp.appmarketraez.ui.shoppingCar
 
+import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,7 +12,10 @@ import androidx.lifecycle.Observer
 import com.kaopiz.kprogresshud.KProgressHUD
 import com.raezcorp.appmarketraez.R
 import com.raezcorp.appmarketraez.core.BaseAdapter
+import com.raezcorp.appmarketraez.core.BaseFragment
+import com.raezcorp.appmarketraez.core.Message.showMessage
 import com.raezcorp.appmarketraez.core.Message.toast
+import com.raezcorp.appmarketraez.databinding.EditProductDialogBinding
 import com.raezcorp.appmarketraez.databinding.FragmentMyShoppingBinding
 import com.raezcorp.appmarketraez.databinding.ItemProductBinding
 import com.raezcorp.appmarketraez.databinding.ItemShoppingcarBinding
@@ -19,7 +23,7 @@ import com.raezcorp.appmarketraez.model.Product
 import com.raezcorp.appmarketraez.model.shoppingCar
 import com.squareup.picasso.Picasso
 
-class MyShoppingFragment : Fragment() {
+class MyShoppingFragment : BaseFragment() {
 
     private var _binding : FragmentMyShoppingBinding? = null
     private val binding get() = _binding!!
@@ -27,6 +31,8 @@ class MyShoppingFragment : Fragment() {
     private val viewModel : ShoppingCarViewModel by viewModels()
 
     private var progress: KProgressHUD? = null
+
+    private var cartPreview : List<shoppingCar> = listOf()
 
     private val adapter: BaseAdapter<shoppingCar> = object : BaseAdapter<shoppingCar>(emptyList()) {
         override fun getViewHolder(parent: ViewGroup): BaseAdapterViewHolder<shoppingCar> {
@@ -43,7 +49,8 @@ class MyShoppingFragment : Fragment() {
                     Picasso.get().load(entity.imagen).error(R.drawable.product_error).into(imgCart)
 
                     imgEdit.setOnClickListener {
-                        Toast.makeText(requireContext(),entity.descripcion, Toast.LENGTH_SHORT).show()
+                        //Toast.makeText(requireContext(),entity.descripcion, Toast.LENGTH_SHORT).show()
+                        createShowDialogUpdateProduct(entity).show()
                     }
 
                     imgDelete.setOnClickListener {
@@ -54,6 +61,60 @@ class MyShoppingFragment : Fragment() {
             }
         }
     }
+
+    private fun createShowDialogUpdateProduct(entity: shoppingCar) : AlertDialog {
+
+        val binding = EditProductDialogBinding.inflate(LayoutInflater.from(requireContext()))
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setView(binding.root)
+
+        val alertDialog = builder.create()
+
+        binding.tvHeaderProduct.text = entity.descripcion
+        binding.tvCantDialog.text = entity.cantidad.toString()
+        Picasso.get().load(entity.imagen).into(binding.imgDialog)
+
+        val total = (entity.precio)*(entity.cantidad)
+        val format = "%.2f".format(total)
+        binding.tvTotalDialog.text = "$format"
+
+        binding.imgPlusDialog.setOnClickListener {
+
+            val cantidad = binding.tvCantDialog.text.toString().toInt() + 1
+            binding.tvCantDialog.text = "$cantidad"
+
+            entity.cantidad = cantidad
+
+            var total = 0.0
+            total+= (entity.precio) * cantidad
+            val format = "%.2f".format(total)
+            binding.tvTotalDialog.text = format
+        }
+
+        binding.imgLessDialog.setOnClickListener {
+
+            if(binding.tvCantDialog.text.toString().toInt() > 0){
+                val cantidad = binding.tvCantDialog.text.toString().toInt() - 1
+                binding.tvCantDialog.text = "$cantidad"
+
+                entity.cantidad = cantidad
+
+                var total = 0.0
+                total+= (entity.precio) * cantidad
+                val format = "%.2f".format(total)
+                binding.tvTotalDialog.text = format
+            }
+        }
+
+        binding.btnUpdate.setOnClickListener {
+            viewModel.updateCart(entity)
+            alertDialog.dismiss()
+        }
+
+        return alertDialog
+
+    }
+
 
     fun deleteProduct(entity:shoppingCar){
 
@@ -73,9 +134,22 @@ class MyShoppingFragment : Fragment() {
 
 
         init()
+        events()
         setupAdapter()
         setupObservables()
     }
+
+    private fun events() = with(binding){
+
+        btnCheckIn.setOnClickListener {
+            if(cartPreview.isNotEmpty()){
+                navigate(action= R.id.action_myShoppingFragment_to_paymentFragment)
+            }else{
+                requireContext().showMessage("Debe agregar al menos un producto").show()
+            }
+        }
+    }
+
 
     private fun setupAdapter() = with(binding){
 
@@ -83,8 +157,6 @@ class MyShoppingFragment : Fragment() {
     }
 
     private fun setupObservables() {
-
-
 
         viewModel.loader.observe(viewLifecycleOwner, Observer { condicion ->
             if(condicion){
@@ -109,16 +181,25 @@ class MyShoppingFragment : Fragment() {
             adapter.update(cart)
         })
 
-        viewModel.deleteSuccess.observe(viewLifecycleOwner, Observer { messageSucess ->
+        viewModel.success.observe(viewLifecycleOwner, Observer { messageSucess ->
             requireContext().toast(messageSucess)
         })
 
     }
 
-    private fun init() {
+    private fun init()  = with(binding)  {
 
         viewModel.getShoppingCar?.observe(viewLifecycleOwner, Observer {
+            cartPreview = it
+            var total = 0.0
+
+            it.forEach { product ->
+                total += (product.precio) * (product.cantidad)
+            }
+
+            tvTotal.text = "$total"
             adapter.update(it)
+
         })
 
     }

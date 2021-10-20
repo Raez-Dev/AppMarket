@@ -14,6 +14,7 @@ import com.kaopiz.kprogresshud.KProgressHUD
 import com.raezcorp.appmarketraez.MainActivity
 import com.raezcorp.appmarketraez.R
 import com.raezcorp.appmarketraez.core.BaseAdapter
+import com.raezcorp.appmarketraez.core.BaseFragment
 import com.raezcorp.appmarketraez.core.Message.showMessage
 import com.raezcorp.appmarketraez.core.Message.toast
 import com.raezcorp.appmarketraez.core.SecurityPreferences
@@ -29,7 +30,7 @@ import com.raezcorp.appmarketraez.util.Constants
 import com.squareup.picasso.Picasso
 
 
-class CategoriesFragment : Fragment() {
+class CategoriesFragment : BaseFragment() {
     private var _binding: FragmentCategoriesBinding? = null
     private val binding get() = _binding!!
 
@@ -56,7 +57,8 @@ class CategoriesFragment : Fragment() {
 
                     binding.imgCategories.setOnClickListener {
                         val directions = CategoriesFragmentDirections.actionCategoriesFragmentToProductsFragment(entity.uuid)
-                        Navigation.findNavController(binding.root).navigate(directions)
+                        //Navigation.findNavController(binding.root).navigate(directions)
+                        navigate(directions=directions)
                     }
                 }
             }

@@ -7,14 +7,17 @@
         <entry key="..\:/Users/Carlos Raez/Desktop/Cursos/WorkshopKotlin-JuanLedesma/AppMarket/app/src/main/res/drawable/custom_scrollbar_products.xml" value="0.2948717948717949" />
         <entry key="..\:/Users/Carlos Raez/Desktop/Cursos/WorkshopKotlin-JuanLedesma/AppMarket/app/src/main/res/drawable/ic_back.xml" value="0.2948717948717949" />
         <entry key="..\:/Users/Carlos Raez/Desktop/Cursos/WorkshopKotlin-JuanLedesma/AppMarket/app/src/main/res/drawable/product_error.xml" value="0.2948717948717949" />
+        <entry key="..\:/Users/Carlos Raez/Desktop/Cursos/WorkshopKotlin-JuanLedesma/AppMarket/app/src/main/res/drawable/shape_container.xml" value="0.2948717948717949" />
         <entry key="..\:/Users/Carlos Raez/Desktop/Cursos/WorkshopKotlin-JuanLedesma/AppMarket/app/src/main/res/drawable/shape_rectangle_product.xml" value="0.2948717948717949" />
         <entry key="..\:/Users/Carlos Raez/Desktop/Cursos/WorkshopKotlin-JuanLedesma/AppMarket/app/src/main/res/drawable/style_spinner.xml" value="0.2948717948717949" />
         <entry key="..\:/Users/Carlos Raez/Desktop/Cursos/WorkshopKotlin-JuanLedesma/AppMarket/app/src/main/res/layout/activity_main.xml" value="0.2901709401709402" />
         <entry key="..\:/Users/Carlos Raez/Desktop/Cursos/WorkshopKotlin-JuanLedesma/AppMarket/app/src/main/res/layout/activity_main_menu.xml" value="0.4" />
         <entry key="..\:/Users/Carlos Raez/Desktop/Cursos/WorkshopKotlin-JuanLedesma/AppMarket/app/src/main/res/layout/dialog_unauthorize.xml" value="0.2782051282051282" />
+        <entry key="..\:/Users/Carlos Raez/Desktop/Cursos/WorkshopKotlin-JuanLedesma/AppMarket/app/src/main/res/layout/edit_product_dialog.xml" value="0.15384615384615385" />
         <entry key="..\:/Users/Carlos Raez/Desktop/Cursos/WorkshopKotlin-JuanLedesma/AppMarket/app/src/main/res/layout/fragment_categories.xml" value="0.264" />
         <entry key="..\:/Users/Carlos Raez/Desktop/Cursos/WorkshopKotlin-JuanLedesma/AppMarket/app/src/main/res/layout/fragment_login.xml" value="0.2782051282051282" />
         <entry key="..\:/Users/Carlos Raez/Desktop/Cursos/WorkshopKotlin-JuanLedesma/AppMarket/app/src/main/res/layout/fragment_my_shopping.xml" value="0.2" />
+        <entry key="..\:/Users/Carlos Raez/Desktop/Cursos/WorkshopKotlin-JuanLedesma/AppMarket/app/src/main/res/layout/fragment_payment.xml" value="0.2782051282051282" />
         <entry key="..\:/Users/Carlos Raez/Desktop/Cursos/WorkshopKotlin-JuanLedesma/AppMarket/app/src/main/res/layout/fragment_product_detail.xml" value="0.2782051282051282" />
         <entry key="..\:/Users/Carlos Raez/Desktop/Cursos/WorkshopKotlin-JuanLedesma/AppMarket/app/src/main/res/layout/fragment_products.xml" value="0.21262458471760798" />
         <entry key="..\:/Users/Carlos Raez/Desktop/Cursos/WorkshopKotlin-JuanLedesma/AppMarket/app/src/main/res/layout/fragment_register.xml" value="0.2782051282051282" />
@@ -24,6 +27,7 @@
         <entry key="..\:/Users/Carlos Raez/Desktop/Cursos/WorkshopKotlin-JuanLedesma/AppMarket/app/src/main/res/layout/item_images.xml" value="0.2782051282051282" />
         <entry key="..\:/Users/Carlos Raez/Desktop/Cursos/WorkshopKotlin-JuanLedesma/AppMarket/app/src/main/res/layout/item_product.xml" value="0.264" />
         <entry key="..\:/Users/Carlos Raez/Desktop/Cursos/WorkshopKotlin-JuanLedesma/AppMarket/app/src/main/res/layout/item_shoppingcar.xml" value="0.4" />
+        <entry key="..\:/Users/Carlos Raez/Desktop/Cursos/WorkshopKotlin-JuanLedesma/AppMarket/app/src/main/res/layout/message_dialog.xml" value="0.2782051282051282" />
         <entry key="..\:/Users/Carlos Raez/Desktop/Cursos/WorkshopKotlin-JuanLedesma/AppMarket/app/src/main/res/menu/navigation_menu.xml" value="0.4" />
         <entry key="..\:/Users/Carlos Raez/Desktop/Cursos/WorkshopKotlin-JuanLedesma/MarketApp/app/src/main/res/layout/fragment_login.xml" value="0.2782051282051282" />
         <entry key="..\:/Users/Carlos Raez/Desktop/Cursos/WorkshopKotlin-JuanLedesma/Sesion 1/Codigo Carlos/MarketApp/app/src/main/res/layout/activity_main.xml" value="0.31313131313131315" />
